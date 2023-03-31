@@ -136,7 +136,6 @@ export class FileHandle {
       }
     } else {
       const limit = end - start;
-      console.log(limit)
       let iteration = 0;
 
       if (limit < 1) {
@@ -145,7 +144,6 @@ export class FileHandle {
 
       for await (const line of readLines(this.handle!)) {
         if (iteration < start) {
-          console.log("not collecting")
           iteration++;
           continue;
         }
@@ -154,7 +152,6 @@ export class FileHandle {
 
         lines.push(line);
 
-        console.log(iteration, end)
         if (iteration === end) {
           break;
         }
